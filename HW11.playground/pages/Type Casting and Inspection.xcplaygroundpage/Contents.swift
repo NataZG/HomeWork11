@@ -66,7 +66,6 @@ var values: [Any] = [1.2, 3, "Ocean", true, false]
 func getTotalOfValues(values: [Any]) -> Double {
 
     var total: Double = 0
-    
 
     for value in values {
         if let valueWithNumber = value as? Double {
@@ -81,7 +80,7 @@ func getTotalOfValues(values: [Any]) -> Double {
         if let valueWithNumber = value as? Bool {
             total += Double(2)
     }
-    }
+        }
     return total
 }
 
