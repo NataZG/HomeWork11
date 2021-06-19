@@ -60,8 +60,11 @@ for value in dictionary {
 }
 print ("\(total)")
  */
+// таким образом у меня почему-то не считает :/
+
 
 var values: [Any] = [1.2, 3, "Ocean", true, false]
+
 
 func getTotalOfValues(values: [Any]) -> Double {
 
@@ -73,14 +76,18 @@ func getTotalOfValues(values: [Any]) -> Double {
         }
         if let valueWithNumber = value as? Int {
             total += Double(valueWithNumber)
-    }
+        }
         if let valueWithNumber = value as? String {
             total += Double(1)
-    }
-        if let valueWithNumber = value as? Bool {
-            total += Double(2)
-    }
         }
+        if let valueWithNumber = value as? Bool, value as! Bool {
+            total += Double(2)
+        }
+        if let valueWithNumber = value as? Bool, value as! Bool {
+            total -= Double(3) // подозреваю, что условность значения Bool достигается не так, но работает же :D
+        }
+    }
+
     return total
 }
 
@@ -94,7 +101,7 @@ var values2: [Any] = [1.2, 3, "22", true, false]
 func getTotalOfValues2(values: [Any]) -> Double {
 
     var total: Double = 0
-    
+
 
     for value in values {
         if let valueWithNumber = value as? Double {
@@ -102,10 +109,10 @@ func getTotalOfValues2(values: [Any]) -> Double {
         }
         if let valueWithNumber = value as? Int {
             total += Double(valueWithNumber)
-    }
-        if let valueWithNumber = value as? String{
-            total += Double(1)
-    }
+        }
+        if let valueWithNumber = value as? String {
+            total += Double(0)
+        }
     }
     return total
 }
