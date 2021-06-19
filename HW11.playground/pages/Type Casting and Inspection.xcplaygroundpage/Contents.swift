@@ -111,7 +111,7 @@ func getTotalOfValues2(values: [Any]) -> Double {
             total += Double(valueWithNumber)
         }
         if let valueWithNumber = value as? String {
-            total += Double(0)
+            total += Double(0) // пока не разобралась, как конвертировать строку в число в данном синтаксисе, но буду пробовать
         }
     }
     return total
