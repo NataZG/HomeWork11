@@ -110,8 +110,10 @@ func getTotalOfValues2(values: [Any]) -> Double {
         if let valueWithNumber = value as? Int {
             total += Double(valueWithNumber)
         }
-        if let valueWithNumber = value as? String {
-            total += Double(0) // пока не разобралась, как конвертировать строку в число в данном синтаксисе, но буду пробовать
+        if let stringWithNumber = value as? String {
+            if let myInt = Int(stringWithNumber) {
+                total += Double(myInt) // не могу понять, пояему не работает
+            }
         }
     }
     return total
