@@ -80,12 +80,14 @@ func getTotalOfValues(values: [Any]) -> Double {
         if let valueWithNumber = value as? String {
             total += Double(1)
         }
-        if let valueWithNumber = value as? Bool, value as! Bool {
+        if let valueWithNumber = value as? Bool {
+            switch valueWithNumber {
+            case true:
             total += Double(2)
+            case false:
+            total -= Double(3)
         }
-        if let valueWithNumber = value as? Bool, value as! Bool {
-            total -= Double(3) // подозреваю, что условность значения Bool достигается не так, но работает же :D если ставлю == true - крешится и выдается ошибка
-        }
+    }
     }
 
     return total
