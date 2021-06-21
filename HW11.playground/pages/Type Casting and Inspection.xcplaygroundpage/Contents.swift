@@ -28,7 +28,12 @@ for item in array {
 /*:
  Создайте словарь [String : Any], где все значения — это смесь вещественных и целых чисел, строк и булевых значений.  Выведите крассиво на консоль пары ключ/значения для всех элементов коллекции.
  */
-let dictionary: [String: Any] = ["Double": 1.2, "Integer": 3, "String": "Ocean", "Bool true": true, "Bool false": false]
+let dictionary: [String: Any] =
+    ["Double": 1.2,
+    "Integer": 3,
+    "String": "Ocean",
+    "Bool true": true,
+    "Bool false": false]
 
 for (key, value) in dictionary {
     switch value {
@@ -83,11 +88,11 @@ func getTotalOfValues(values: [Any]) -> Double {
         if let valueWithNumber = value as? Bool {
             switch valueWithNumber {
             case true:
-            total += Double(2)
+                total += Double(2)
             case false:
-            total -= Double(3)
+                total -= Double(3)
+            }
         }
-    }
     }
 
     return total
@@ -111,17 +116,17 @@ func getTotalOfValues2(values: [Any]) -> Double {
             total += Double((value) as! Int)
         case is Double:
             total += value as! Double
-      //  case is String:
-        //    let newValue = Int(value) {
-        //    total += Double(newValue)!
-       //     } не работает :( не могу разобраться с этим
+            //  case is String:
+            //    let newValue = Int(value) {
+            //    total += Double(newValue)!
+            //     } не работает :( не могу разобраться с этим
         default:
             break
         }
     }
-        return total
-    }
-        
+    return total
+}
+
 getTotalOfValues2(values: values)
 print(getTotalOfValues2(values: values))
 
