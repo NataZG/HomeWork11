@@ -84,7 +84,7 @@ func getTotalOfValues(values: [Any]) -> Double {
             total += Double(2)
         }
         if let valueWithNumber = value as? Bool, value as! Bool {
-            total -= Double(3) // подозреваю, что условность значения Bool достигается не так, но работает же :D
+            total -= Double(3) // подозреваю, что условность значения Bool достигается не так, но работает же :D если ставлю == true - крешится и выдается ошибка
         }
     }
 
@@ -103,22 +103,23 @@ func getTotalOfValues2(values: [Any]) -> Double {
     var total: Double = 0
 
 
-    for value in values {
-        if let valueWithNumber = value as? Double {
-            total += valueWithNumber
-        }
-        if let valueWithNumber = value as? Int {
-            total += Double(valueWithNumber)
-        }
-        if let stringWithNumber = value as? String {
-            if let myInt = Int(stringWithNumber) {
-                total += Double(myInt) // не могу понять, пояему не работает
-            }
+    for value in values2 {
+        switch value {
+        case is Int:
+            total += Double((value) as! Int)
+        case is Double:
+            total += value as! Double
+      //  case is String:
+        //    let newValue = Int(value) {
+        //    total += Double(newValue)!
+       //     } не работает :( не могу разобраться с этим
+        default:
+            break
         }
     }
-    return total
-}
-
+        return total
+    }
+        
 getTotalOfValues2(values: values)
 print(getTotalOfValues2(values: values))
 
